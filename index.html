@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,20 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Devfinder</title>
 
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/style.css" />
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
   <body>
     <div id="app">
       <header>
-        <a href="/"><img src="/assets/logo.svg" alt="Logo devfinder"></a>
+        <a href="/" id="logo">Devfinder</a>
+
+        <div id="toggle-mode">
+          <label for="toggle-dark-light">DARK</label>
+          <input type="checkbox" id="toggle-dark-light" />
+          <i class="ph-fill ph-moon"></i>
+          <i class="ph-fill ph-sun"></i>
+        </div>
       </header>
 
       <main>
-        <form action="">
-          <img src="/assets/search.svg" alt="Magnifying glass icon">
-          <input type="text">
+        <form id="form" action="">
+          <img src="/assets/search.svg" alt="Magnifying glass icon" />
+          <label for="search">Search GitHub username</label>
+          <input
+            type="text"
+            id="search"
+            placeholder="Search GitHub username..."
+          />
+          <span class="error"></span>
           <button>Search</button>
         </form>
+
+        <section id="github-user">
+          <img
+            src="https://github.com/diogo-kappaun.png"
+            alt="imagem de Diogo Kappaun"
+          />
+
+          <div>
+            <h1 id="name">Diogo Kappaun</h1>
+            <span id="created-at">Joined 12 Out 2022</span>
+            <a
+              href="https://github.com/diogo-kappaun"
+              target="_blank"
+              id="html_url"
+              >@diogo-kappaun</a
+            >
+            <h2 id="bio">Aspiring fullstack developer</h2>
+
+            <section id="account-numbers">
+              <div class="repos-box">
+                <h3>Repos</h3>
+                <p id="repos">21</p>
+              </div>
+
+              <div class="followers-box">
+                <h3>Followers</h3>
+                <p id="followers">6</p>
+              </div>
+
+              <div class="following-box">
+                <h3>Following</h3>
+                <p id="following">8</p>
+              </div>
+            </section>
+
+            <section id="user-info">
+              <div class="location-box">
+                <i class="ph-fill ph-map-pin"></i>
+                <span id="location">Maravilha</span>
+              </div>
+
+              <div class="website-box">
+                <i class="ph-bold ph-link"></i>
+                <a id="blog" href="">Not Available</a>
+              </div>
+
+              <div class="twitter-box">
+                <i class="ph-fill ph-twitter-logo"></i>
+                <a id="twitter_username" href="https://twitter.com/4headigas"
+                  >@4headigas</a
+                >
+              </div>
+
+              <div class="company-box">
+                <i class="ph-fill ph-buildings"></i>
+                <a id="company" href="">Not Available</a>
+              </div>
+            </section>
+          </div>
+        </section>
       </main>
     </div>
 
