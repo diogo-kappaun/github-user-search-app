@@ -22,18 +22,18 @@
       <header>
         <a href="/" id="logo">Devfinder</a>
 
-        <div id="toggle-mode">
-          <label for="toggle-dark-light">DARK</label>
-          <input type="checkbox" id="toggle-dark-light" />
+        <button id="toggle-mode">
+          <span class="sr-only">Ativar modo escuro</span>
+          <p>dark</p>
           <i class="ph-fill ph-moon"></i>
           <i class="ph-fill ph-sun"></i>
-        </div>
+        </button>
       </header>
 
       <main>
         <form id="form" action="">
           <img src="/assets/search.svg" alt="Magnifying glass icon" />
-          <label for="search">Search GitHub username</label>
+          <label class="sr-only" for="search">Search GitHub username</label>
           <input
             type="text"
             id="search"
