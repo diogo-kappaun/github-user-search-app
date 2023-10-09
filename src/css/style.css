@@ -9,10 +9,20 @@
 a {
   text-decoration: none;
   color: #000;
+}
 
-  &:hover {
-    text-decoration: underline;
-  }
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
 }
 
 :root {
@@ -36,7 +46,7 @@ html.dark {
   --bd-bg-color: hsl(220, 40%, 13%);
   --cd-bg-color: hsl(221, 41%, 20%);
   --num-bg-color: hsl(219, 39%, 13%);
-  
+
   --ft-main-color: hsl(0, 0%, 100%);
   --ft-sec-color: hsla(0, 0%, 100%, 0.75);
   --ft-tec-color: hsl(0, 0%, 100%);
@@ -45,18 +55,75 @@ html.dark {
 
 body {
   font-size: 1.5rem;
-  font-family: 'Space Mono', monospace;
   min-height: 100vh;
 
   background-color: var(--bd-bg-color);
+}
+
+body, a, button {
+  font-family: "Space Mono", monospace;
 }
 
 #app {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   width: min(73rem, 100%);
   margin: 0 auto;
   min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 3.5rem;
+}
+
+header #logo {
+  text-transform: lowercase;
+
+  color: var(--ft-main-color);
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+header #toggle-mode {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+
+  cursor: pointer;
+
+  border: 0;
+  background-color: transparent;
+
+  &:hover i,
+  &:hover p {
+    color: var(--ft-toggle-color-hover);
+  }
+}
+
+header #toggle-mode p {
+  color: var(--ft-tec-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+
+  text-transform: uppercase;
+
+  transition: color 0.3s ease-in-out;
+}
+
+header #toggle-mode i {
+  font-size: 2.5rem;
+  color: var(--ft-tec-color);
+
+  transition: color 0.3s ease-in-out;
+}
+
+html:not(.dark) .ph-sun,
+html.dark .ph-moon {
+  display: none;
 }
