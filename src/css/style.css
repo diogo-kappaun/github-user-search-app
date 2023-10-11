@@ -59,7 +59,6 @@ html.dark {
 }
 
 body {
-  font-size: 1.5rem;
   min-height: 100vh;
 
   background-color: var(--bg-bd-color);
@@ -70,6 +69,7 @@ a,
 button,
 input {
   font-family: "Space Mono", monospace;
+  font-size: clamp(1.3rem, 0.571vw + 1.086rem, 1.5rem);
 }
 
 #app {
@@ -77,9 +77,13 @@ input {
   flex-direction: column;
   justify-content: center;
 
-  width: min(73rem, 100%);
+  width: min(81rem, 100%);
   margin: 0 auto;
   min-height: 100vh;
+
+  padding: clamp(2.4rem, 4.571vw + 0.686rem, 4rem);
+
+  animation: moveX 0.3s ease-in-out;
 }
 
 header {
@@ -139,7 +143,7 @@ html.dark .ph-moon {
 main {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: clamp(1.6rem, 2.286vw + 0.743rem, 2.4rem);
 }
 
 form {
@@ -155,45 +159,52 @@ form button {
 
 input {
   width: 100%;
-  height: 6.9rem;
+  height: clamp(6rem, 2.571vw + 5.036rem, 6.9rem);
 
   color: var(--ft-main-color);
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 1.429vw + 0.764rem, 1.8rem);
   font-style: normal;
   font-weight: 400;
-  line-height: 2.5rem;
 
   border-radius: 1.5rem;
   border: 0;
   background-color: var(--bg-cd-color);
   box-shadow: var(--boxshadow-card);
 
-  padding: 2.2rem 8rem;
+  padding: clamp(1.8rem, 1.143vw + 1.371rem, 2.2rem)
+    clamp(4.5rem, 10vw + 0.75rem, 8rem)
+    clamp(1.7rem, 1.429vw + 1.164rem, 2.2rem);
+
+  caret-color: var(--bg-btn-color);
 
   cursor: pointer;
 
   &::placeholder {
     color: var(--ft-sec-color);
-    font-size: 1.8rem;
-    line-height: 2.5rem;
+    font-size: clamp(1.3rem, 1.429vw + 0.764rem, 1.8rem);
+    letter-spacing: -1px;
   }
 
   &:focus {
-    outline: 2px solid var(--bg-btn-color);
+    outline: 1px solid var(--bg-btn-color);
   }
 }
 
 form img {
-  top: 2.3rem;
-  left: 3.2rem;
+  top: clamp(2rem, 0.857vw + 1.679rem, 2.3rem);
+  left: clamp(1.6rem, 4.571vw - 0.114rem, 3.2rem);
+
+  width: clamp(2rem, 1.143vw + 1.571rem, 2.4rem);
+  height: clamp(2rem, 1.143vw + 1.571rem, 2.4rem);
+  object-fit: cover;
 }
 
 form button {
-  top: 0.95rem;
+  top: clamp(0.7rem, 0.571vw + 0.486rem, 0.95rem);
   right: 1rem;
 
-  height: 5rem;
-  width: 10.6rem;
+  height: clamp(4.6rem, 1.143vw + 4.171rem, 5rem);
+  width: clamp(8.4rem, 6.286vw + 6.043rem, 10.6rem);
 
   border-radius: 1rem;
   border: 0;
@@ -230,8 +241,7 @@ form button {
 }
 
 #github-user img {
-  width: 11.7rem;
-  height: 11.7rem;
+  width: clamp(7rem, 13.429vw + 1.964rem, 11.7rem);
   object-fit: cover;
   border-radius: 50%;
 
@@ -242,7 +252,7 @@ form button {
 
 #github-user h1 {
   color: var(--ft-main-color);
-  font-size: 2.6rem;
+  font-size: clamp(1.6rem, 2.857vw + 0.529rem, 2.6rem);
   font-weight: 700;
 
   margin-bottom: 0.2rem;
@@ -254,13 +264,12 @@ form button {
   right: 4.8rem;
 
   color: var(--ft-tec-color);
-  font-size: 1.5rem;
   font-weight: 400;
 }
 
 #github-user #html_url {
   color: var(--ft-lk-color);
-  font-size: 1.6rem;
+  font-size: clamp(1.3rem, 0.857vw + 0.979rem, 1.6rem);
   font-weight: 400;
 
   margin-bottom: 2rem;
@@ -268,46 +277,44 @@ form button {
 
 #github-user #bio {
   color: var(--ft-sec-color);
-  font-size: 1.5rem;
   font-weight: 400;
   line-height: 2.5rem;
 
-  margin-bottom: 3.2rem;
+  margin-bottom: clamp(2.3rem, 2.571vw + 1.336rem, 3.2rem);
 }
 
 #github-user #account-numbers {
   display: flex;
-  gap: 8rem;
+  justify-content: space-between;
 
-  padding: 1.5rem 3.2rem;
+  padding: clamp(1.8rem, -0.857vw + 2.121rem, 1.5rem) clamp(1.5rem, 4.857vw - 0.321rem, 3.2rem) clamp(1.9rem, -1.143vw + 2.329rem, 1.5rem);
 
   background-color: var(--bg-num-color);
   border-radius: 1rem;
-  height: 8.5rem;
 
-  margin-bottom: 3.7rem;
+  margin-bottom: clamp(2.4rem, 3.714vw + 1.007rem, 3.7rem);
 }
 
 #github-user #account-numbers div {
-  width: 7.2rem;
+  flex: 1;
 }
 
 #github-user #account-numbers h3 {
   color: var(--ft-sec-color);
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 0.571vw + 0.886rem, 1.3rem);
   font-weight: 400;
 }
 
 #github-user #account-numbers p {
   color: var(--ft-main-color);
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 1.714vw + 0.957rem, 2.2rem);
   font-weight: 700;
 }
 
 #github-user #user-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: clamp(1.7rem, 0.857vw + 1.379rem, 2rem);
 }
 
 #github-user #user-info i {
@@ -318,11 +325,76 @@ form button {
 #github-user #user-info div {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1.3rem, 2vw + 0.55rem, 2rem);
 }
 
 #github-user #user-info a {
   color: var(--ft-main-color);
-  font-size: 1.5rem;
   font-weight: 400;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 725px) {
+  #github-user {
+    padding: clamp(2.4rem, 4.571vw + 0.686rem, 4rem);
+  }
+
+  #github-user img {
+    top: clamp(3.2rem, 2.286vw + 2.343rem, 4rem);
+    left: clamp(2.4rem, 4.571vw + 0.686rem, 4rem);
+  }
+
+  #github-user h1 {
+    margin-top: clamp(0rem, 3.429vw - 1.286rem, 1.2rem);
+  }
+
+  #github-user #created-at {
+    position: static;
+    margin-bottom: 3.8rem;
+  }
+
+  #github-user #html_url {
+    margin-bottom: 0.4rem;
+  }
+
+  #github-user h1,
+  #github-user #created-at,
+  #github-user #html_url {
+    margin-left: clamp(9rem, 19.429vw + 1.714rem, 15.8rem);
+  }
+}
+
+@media (max-width: 395px) {
+  #github-user #user-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 375px) {
+  #github-user {
+    padding: 3.2rem 2.4rem 4.8rem;
+  }
+
+  #github-user #account-numbers div {
+    text-align: center;
+  }
+
+  #github-user #account-numbers p {
+    margin-top: clamp(0.8rem, -2.286vw + 1.657rem, 0rem);
+  }
+
+  #github-user #user-info .website-box,
+  #github-user #user-info .location-box {
+    order: -1;
+  }
+}
+
+@keyframes moveX {
+  0% {
+    transform: translateX(-100vw);
+  }
 }
