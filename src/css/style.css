@@ -153,7 +153,8 @@ form {
 }
 
 form img,
-form button {
+form button,
+form span {
   position: absolute;
 }
 
@@ -197,6 +198,21 @@ form img {
   width: clamp(2rem, 1.143vw + 1.571rem, 2.4rem);
   height: clamp(2rem, 1.143vw + 1.571rem, 2.4rem);
   object-fit: cover;
+}
+
+form span {
+  display: none;
+
+  color: var(--ft-err-color);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 0.571vw + 1.086rem, 1.5rem);
+
+  top: clamp(2.1rem, 0.857vw + 1.779rem, 2.4rem);
+  right: clamp(11.5rem, 7.143vw + 8.821rem, 14rem);
+}
+
+form.error span {
+  display: block;
 }
 
 form button {
@@ -328,13 +344,20 @@ form button {
   gap: clamp(1.3rem, 2vw + 0.55rem, 2rem);
 }
 
-#github-user #user-info a {
+#github-user #user-info a,
+#github-user #user-info span {
   color: var(--ft-main-color);
   font-weight: 400;
+}
 
-  &:hover {
-    text-decoration: underline;
-  }
+#github-user #user-info a:hover {
+  text-decoration: underline;
+}
+
+#github-user #user-info div.not-available {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
 }
 
 @media (max-width: 725px) {
