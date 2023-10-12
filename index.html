@@ -31,15 +31,14 @@
       </header>
 
       <main>
-        <form id="form" action="">
+        <form id="form" class="error" action="">
           <img src="/assets/search.svg" alt="Magnifying glass icon" />
           <label class="sr-only" for="search">Search GitHub username</label>
           <input
             type="text"
             id="search"
-            placeholder="Search GitHub username..."
           />
-          <span class="error"></span>
+          <span>No results</span>
           <button>Search</button>
         </form>
 
@@ -79,7 +78,7 @@
           <section id="user-info">
             <div class="location-box">
               <i class="ph-fill ph-map-pin"></i>
-              <a id="location">Maravilha</a>
+              <span id="location">Maravilha</span>
             </div>
 
             <div class="twitter-box">
@@ -89,14 +88,14 @@
               >
             </div>
 
-            <div class="website-box">
+            <div class="website-box not-available">
               <i class="ph-bold ph-link"></i>
               <a id="blog" href="">Not Available</a>
             </div>
 
-            <div class="company-box">
+            <div class="company-box not-available">
               <i class="ph-fill ph-buildings"></i>
-              <a id="company" href="">Not Available</a>
+              <span id="company" href="">Not Available</span>
             </div>
           </section>
         </section>
