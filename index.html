@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="dark">
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,22 +24,19 @@
 
         <button id="toggle-mode">
           <span class="sr-only">Active Dark mode</span>
-          <p>Dark</p>
+          <p>Light</p>
           <i class="ph-fill ph-moon"></i>
           <i class="ph-fill ph-sun"></i>
         </button>
       </header>
 
       <main>
-        <form id="form" class="error" action="">
+        <form id="form" action="">
           <img src="/assets/search.svg" alt="Magnifying glass icon" />
           <label class="sr-only" for="search">Search GitHub username</label>
-          <input
-            type="text"
-            id="search"
-          />
+          <input type="text" id="search" placeholder="Search github username" />
           <span>No results</span>
-          <button>Search</button>
+          <button id="btn-search">Search</button>
         </form>
 
         <section id="github-user">
@@ -50,9 +47,9 @@
 
           <h1 id="name">Diogo Kappaun</h1>
           <a
+            id="html_url"
             href="https://github.com/diogo-kappaun"
             target="_blank"
-            id="html_url"
             >@diogo-kappaun</a
           >
           <span id="created-at">Joined 12 Out 2022</span>
@@ -83,19 +80,22 @@
 
             <div class="twitter-box">
               <i class="ph-fill ph-twitter-logo"></i>
-              <a id="twitter_username" href="https://twitter.com/4headigas"
+              <a
+                id="twitter-username"
+                href="https://twitter.com/4headigas"
+                target="_blank"
                 >@4headigas</a
               >
             </div>
 
-            <div class="website-box not-available">
+            <div class="website-box">
               <i class="ph-bold ph-link"></i>
-              <a id="blog" href="">Not Available</a>
+              <a id="blog" href="#" target="_blank">Not Available</a>
             </div>
 
-            <div class="company-box not-available">
+            <div class="company-box">
               <i class="ph-fill ph-buildings"></i>
-              <span id="company" href="">Not Available</span>
+              <span id="company">Not Available</span>
             </div>
           </section>
         </section>
