@@ -62,6 +62,8 @@ body {
   min-height: 100vh;
 
   background-color: var(--bg-bd-color);
+
+  overflow-y: hidden;
 }
 
 body,
@@ -242,8 +244,12 @@ form button {
   }
 }
 
-#github-user {
+html.running #github-user {
   display: flex;
+}
+
+#github-user {
+  display: none;
   flex-direction: column;
 
   position: relative;
@@ -254,6 +260,10 @@ form button {
   border-radius: 1.5rem;
   padding: 4.8rem;
   padding-left: 20.2rem;
+
+  -webkit-animation: swing-in-top-fwd 3s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: swing-in-top-fwd 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
 #github-user img {
@@ -303,7 +313,9 @@ form button {
   display: flex;
   justify-content: space-between;
 
-  padding: clamp(1.8rem, -0.857vw + 2.121rem, 1.5rem) clamp(1.5rem, 4.857vw - 0.321rem, 3.2rem) clamp(1.9rem, -1.143vw + 2.329rem, 1.5rem);
+  padding: clamp(1.8rem, -0.857vw + 2.121rem, 1.5rem)
+    clamp(1.5rem, 4.857vw - 0.321rem, 3.2rem)
+    clamp(1.9rem, -1.143vw + 2.329rem, 1.5rem);
 
   background-color: var(--bg-num-color);
   border-radius: 1rem;
@@ -419,5 +431,38 @@ form button {
 @keyframes moveX {
   0% {
     transform: translateX(-100vw);
+  }
+}
+
+@-webkit-keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
   }
 }
