@@ -422,7 +422,7 @@ html.running #github-user {
     margin-top: clamp(0.8rem, -2.286vw + 1.657rem, 0rem);
   }
 
-  #github-user #user-info .website-box,
+  #github-user #user-info .blog-box,
   #github-user #user-info .location-box {
     order: -1;
   }
