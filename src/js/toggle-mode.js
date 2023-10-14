@@ -5,7 +5,7 @@ let darkMode = true;
 toggleMode.addEventListener("click", (event) => {
   html.classList.toggle("dark");
 
-  const themeSelect = darkMode ? "Light" : "Dark";
+  const themeSelect = darkMode ? "Dark" : "Light";
 
   event.currentTarget.querySelector(
     "span"
