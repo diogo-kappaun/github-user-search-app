@@ -1,6 +1,6 @@
 <div align='center'>
     <h1><b>🔍 GitHub Finder</b></h1>
-    <img src='./assets/lupa-github.png' width='250' style="margin-block: 30px;"/>
+    <img src='./public/logo.png' width='250' style="margin-block: 30px;"/>
     <p>Aplicativo que busca informações de usuários do GitHub e apresenta de forma dinâmica</p>
 
 <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/diogo-kappaun/github-user-search-app?style=flat-square&label=Languages&labelColor=%23404040&color=%23BFBFBF">
