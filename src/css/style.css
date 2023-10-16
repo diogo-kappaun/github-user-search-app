@@ -267,7 +267,7 @@ html.running #github-user {
   animation: swing-in-top-fwd 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
-#github-user img {
+#github-user #github-user-image {
   width: clamp(7rem, 13.429vw + 1.964rem, 11.7rem);
   object-fit: cover;
   border-radius: 50%;
@@ -401,7 +401,7 @@ html.running #github-user {
     padding: clamp(2.4rem, 4.571vw + 0.686rem, 4rem);
   }
 
-  #github-user img {
+  #github-user #github-user-image {
     top: clamp(3.2rem, 2.286vw + 2.343rem, 4rem);
     left: clamp(2.4rem, 4.571vw + 0.686rem, 4rem);
   }

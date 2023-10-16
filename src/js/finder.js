@@ -48,9 +48,11 @@ export class FinderView extends Finder {
     this.user.created_at = creationDayTreatment(this.user.created_at);
 
     userPage.querySelector(
-      "img"
+      "#github-user-image"
     ).src = `https://github.com/${this.user.login}.png`;
-    userPage.querySelector("img").alt = `Imagem de ${this.user.name}`;
+    userPage.querySelector(
+      "#github-user-image"
+    ).alt = `Imagem de ${this.user.name}`;
     userPage.querySelector("#name").textContent = this.user.name;
     userPage.querySelector("a").href = `https://github.com/${this.user.login}`;
     userPage.querySelector("a").textContent = `@${this.user.login}`;
@@ -106,7 +108,7 @@ export class FinderView extends Finder {
         "Not Available";
       toggleClassNotAvailable("company");
     }
-    
+
     document.documentElement.classList.add("running");
   }
 
