@@ -106,6 +106,9 @@ export class FinderView extends Finder {
         "Not Available";
       toggleClassNotAvailable("company");
     }
+    
+    document.documentElement.classList.add("running");
+  }
 
     document.documentElement.classList.add('running')
   }

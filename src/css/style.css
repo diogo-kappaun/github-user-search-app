@@ -33,6 +33,7 @@ a {
   --bg-num-color: hsl(228, 100%, 98%);
   --bg-btn-color: hsl(212, 100%, 50%);
   --bg-btn-color-hover: hsla(212, 100%, 69%, 1);
+  --bg-ic-color-favorite: hsl(60, 100%, 44%);
 
   --ft-main-color: hsl(220, 19%, 16%);
   --ft-sec-color: hsl(218, 35%, 45%);
@@ -372,6 +373,27 @@ html.running #github-user {
   pointer-events: none;
   user-select: none;
   opacity: 0.3;
+}
+
+#github-user #favorite-star {
+  position: absolute;
+  bottom: 4.8rem;
+  left: 4.8rem;
+
+  font-size: 3rem;
+  color: var(--ft-main-color);
+
+  transition: transform 0.3s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.1);
+  }
+
+  &.favorite {
+    color: var(--bg-ic-color-favorite);
+  }
 }
 
 @media (max-width: 725px) {
