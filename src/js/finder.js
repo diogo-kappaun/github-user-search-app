@@ -1,5 +1,5 @@
 import { GitHubUser } from "./githubUser.js";
-import { creationDayTreatment, toggleClassNotAvailable } from "./utils.js";
+import * as utils from "./utils.js";
 
 export class Finder {
   constructor(root) {
@@ -45,7 +45,7 @@ export class FinderView extends Finder {
 
   update() {
     const userPage = this.root.querySelector("#github-user");
-    this.user.created_at = creationDayTreatment(this.user.created_at);
+    this.user.created_at = utils.creationDayTreatment(this.user.created_at);
 
     userPage.querySelector(
       "#github-user-image"
@@ -73,40 +73,41 @@ export class FinderView extends Finder {
       userPage.querySelector(
         "#user-info #twitter"
       ).href = `https://twitter.com/${this.user.twitter_username}`;
-      toggleClassNotAvailable("twitter");
+      utils.toggleClassNotAvailable("twitter");
     } else {
       userPage.querySelector("#user-info #twitter").textContent =
         "Not Available";
-      toggleClassNotAvailable("twitter");
+      utils.toggleClassNotAvailable("twitter");
     }
 
     if (this.user.blog !== "" && this.user.blog !== null) {
       userPage.querySelector("#user-info #blog").href = this.user.blog;
       userPage.querySelector("#user-info #blog").textContent = this.user.login;
-      toggleClassNotAvailable("blog");
+      utils.toggleClassNotAvailable("blog");
     } else {
       userPage.querySelector("#user-info #blog").textContent = "Not Available";
-      toggleClassNotAvailable("blog");
+      utils.toggleClassNotAvailable("blog");
     }
 
     if (this.user.location !== null) {
       userPage.querySelector("#user-info #location").textContent =
         this.user.location;
-      toggleClassNotAvailable("location");
+      utils.toggleClassNotAvailable("location");
     } else {
       userPage.querySelector("#user-info #location").textContent =
         "Not Available";
-      toggleClassNotAvailable("location");
+      utils.toggleClassNotAvailable("location");
     }
 
     if (this.user.company !== null) {
       userPage.querySelector("#user-info #company").textContent =
         this.user.company;
-      toggleClassNotAvailable("company");
+      utils.toggleClassNotAvailable("company");
     } else {
       userPage.querySelector("#user-info #company").textContent =
         "Not Available";
-      toggleClassNotAvailable("company");
+      utils.toggleClassNotAvailable("company");
+    }
     }
 
     document.documentElement.classList.add("running");
