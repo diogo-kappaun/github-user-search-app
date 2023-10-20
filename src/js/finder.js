@@ -6,6 +6,14 @@ export class Finder {
     this.root = document.querySelector(root);
   }
 
+  load() {
+    this.entries = JSON.parse(localStorage.getItem("@user-favorites:")) || [];
+  }
+
+  save() {
+    localStorage.setItem("@user-favorites:", JSON.stringify(this.entries));
+  }
+
   async add(username) {
     try {
       this.user = await GitHubUser.search(username);
@@ -29,7 +37,6 @@ export class FinderView extends Finder {
     super(root);
 
     this.onSearch();
-    this.toggle();
   }
 
   onSearch() {
@@ -40,11 +47,14 @@ export class FinderView extends Finder {
       const { value } = this.root.querySelector("#search");
 
       this.add(value);
+
+      this.root.querySelector("#search").value = ""
     };
   }
 
-  update() {
+  update(user) {
     const userPage = this.root.querySelector("#github-user");
+    const favoriteStar = this.root.querySelector("#favorite-star");
     this.user.created_at = utils.creationDayTreatment(this.user.created_at);
 
     userPage.querySelector(
@@ -108,11 +118,114 @@ export class FinderView extends Finder {
         "Not Available";
       utils.toggleClassNotAvailable("company");
     }
+
+    const findUser = this.entries.some(
+      (entry) => entry.name === this.user.name
+    );
+
+    if (findUser) {
+      favoriteStar.classList.add("favorite");
+      utils.changeClassFavorite(favoriteStar);
+    } else {
+      favoriteStar.classList.remove("favorite");
+      utils.changeClassFavorite(favoriteStar);
     }
 
     document.documentElement.classList.add("running");
   }
+}
 
-    document.documentElement.classList.add('running')
+export class FinderFavorite extends FinderView {
+  constructor(root) {
+    super(root);
+
+    this.load();
+    this.onadd();
+    this.updateFavorite();
+    this.toggle();
+  }
+
+  tbody = this.root.querySelector("#favorite-box table tbody");
+
+  toggle() {
+    const btnfavorite = this.root.querySelector("#favorites-toggle");
+    const favoriteList = this.root.querySelector("#favorite-box");
+
+    this.tbody.childNodes.forEach((element) => {
+      element.addEventListener("click", (e) => {
+        let userName = ""
+
+        if (e.target.querySelector('#user-name')) {
+          userName = e.target.querySelector("#user-name").textContent
+        } else if (e.target.parentElement.querySelector("#user-name")) {
+          userName = e.target.parentElement.querySelector("#user-name").textContent;
+        } else {
+          userName = e.target.parentElement.parentElement.querySelector("#user-name").textContent;
+        }
+        
+        this.add(userName)
+
+        favoriteList.classList.remove("show");
+        btnfavorite.classList.remove("show");
+      })
+    });
+
+    btnfavorite.onclick = () => {
+      favoriteList.classList.toggle("show");
+      btnfavorite.classList.toggle("show");
+    };
+  }
+
+  onadd() {
+    const favoriteStar = this.root.querySelector("#favorite-star");
+
+    favoriteStar.onclick = () => {
+      if (!favoriteStar.classList.contains("favorite")) {
+        this.entries = [...this.entries, this.user];
+        this.save();
+        this.update();
+        this.updateFavorite();
+      } else {
+        this.delete();
+        this.update();
+        this.updateFavorite();
+      }
+    };
+  }
+
+  delete() {
+    const filteredEntries = this.entries.filter(
+      (entry) => entry.login !== this.user.login
+    );
+    this.entries = filteredEntries;
+    this.save();
+  }
+
+  updateFavorite() {
+    this.tbody.innerHTML = ""
+    this.entries.forEach((user) => {
+      const favoriteUser = this.createRow();
+
+      favoriteUser.querySelector(
+        "img"
+      ).src = `https://github.com/${user.login}.png`;
+      favoriteUser.querySelector("#user-name").textContent = `${user.login}`;
+      favoriteUser.querySelector("#name").textContent = `${user.name}`;
+
+      this.tbody.append(favoriteUser);
+      this.toggle()
+    });
+  }
+
+  createRow() {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td><img src="" alt=""/></td>
+      <td id="user-name"></td>
+      <td id="name"></td>
+    `;
+
+    return tr;
   }
 }

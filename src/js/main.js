@@ -1,4 +1,4 @@
 import "./toggle-mode.js";
-import { FinderView } from "./finder.js";
+import { FinderFavorite, FinderView } from "./finder.js";
 
-new FinderView("#app")
+new FinderFavorite("#app")

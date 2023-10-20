@@ -12,6 +12,9 @@ export function toggleClassNotAvailable(data) {
 }
 
 export function creationDayTreatment(createDate) {
+  if (createDate.includes("Joined")) {
+    return createDate;
+  }
   const [day, month, year] = new Date(createDate)
     .toLocaleDateString("pt-br")
     .split("/");
@@ -31,4 +34,14 @@ export function creationDayTreatment(createDate) {
     "Dec",
   ];
   return `Joined ${day} ${months[monthsIndex]} ${year}`;
+}
+
+export function changeClassFavorite(element) {
+  if (element.classList.contains("favorite")) {
+    element.classList.remove("ph-thin");
+    element.classList.add("ph-fill");
+  } else {
+    element.classList.remove("ph-fill");
+    element.classList.add("ph-thin");
+  }
 }
